@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  database:
+    image: db-mysql
+    ports:
+      - "3306:3306"
+    environment:
+
+  appSpringRest:
+    image: app-rest.1.0
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - URL=
+      - USERNAME=
+      - PASSWORD=
+    depends_on:
+      - database
